@@ -1,0 +1,213 @@
+/*
+  Este arquivo contém toda a interface React da landing page.
+  Ele funciona junto com index.html e styles.css, sem precisar de build.
+*/
+
+const { useEffect, useState } = React;
+
+// Troque este número pelo WhatsApp real da profissional, usando o formato internacional.
+const WHATSAPP_URL = "https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20terapia.";
+
+// Ícone em SVG para evitar dependência de bibliotecas externas.
+function WhatsAppIcon({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.52 0 .18 5.34.18 11.91c0 2.1.55 4.15 1.6 5.96L.08 24l6.28-1.65a11.9 11.9 0 0 0 5.71 1.45h.01c6.56 0 11.9-5.34 11.9-11.91 0-3.18-1.23-6.17-3.46-8.41ZM12.08 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.73.98 1-3.64-.23-.37a9.86 9.86 0 0 1-1.52-5.27c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.12 1.03 6.99 2.9a9.84 9.84 0 0 1 2.9 7c0 5.45-4.44 9.89-9.91 9.89Zm5.42-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+    </svg>
+  );
+}
+
+// Pequena seta reutilizada nos botões e links.
+function ArrowIcon() {
+  return <span aria-hidden="true">↗</span>;
+}
+
+// Rótulo visual usado no início das seções.
+function SectionLabel({ children }) {
+  return <p className="section-label">{children}</p>;
+}
+
+function App() {
+  // Controla a abertura do menu em telas pequenas.
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Controla qual pergunta do FAQ está aberta.
+  const [openFaq, setOpenFaq] = useState(0);
+
+  // Texto usado na animação de digitação do CTA do hero.
+  const [typedText, setTypedText] = useState("");
+  const typingText = "me chama no WhatsApp";
+
+  // Executa a digitação uma vez quando o componente entra na tela.
+  useEffect(() => {
+    let index = 0;
+    const timer = window.setInterval(() => {
+      index += 1;
+      setTypedText(typingText.slice(0, index));
+      if (index === typingText.length) window.clearInterval(timer);
+    }, 95);
+
+    // Interrompe o timer se o componente for desmontado.
+    return () => window.clearInterval(timer);
+  }, []);
+
+  // Perguntas frequentes exibidas na seção de dúvidas.
+  const faqItems = [
+    "Como funciona a primeira sessão?",
+    "Quanto tempo dura o processo terapêutico?",
+    "A terapia online é para mim?",
+    "Como agendo um horário?"
+  ];
+
+  return (
+    <div>
+      {/* Cabeçalho semântico: ajuda usuários e mecanismos de busca a entenderem a navegação. */}
+      <header className="site-header">
+        <div className="container header-inner">
+          <a className="logo" href="#top" aria-label="Clara Menezes, voltar ao início">Clara <span>Menezes</span></a>
+
+          {/* Navegação principal para desktop. */}
+          <nav className="main-nav" aria-label="Navegação principal">
+            <a href="#sobre">Sobre mim</a>
+            <a href="#abordagem">Abordagem</a>
+            <a href="#atendimento">Atendimentos</a>
+            <a href="#duvidas">Dúvidas</a>
+          </nav>
+
+          <a className="header-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">Agendar conversa ↗</a>
+
+          {/* Botão acessível para abrir e fechar o menu mobile. */}
+          <button className="menu-button" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? "×" : "☰"}
+          </button>
+        </div>
+
+        {/* O menu só é renderizado quando necessário para evitar elementos duplicados. */}
+        {menuOpen && (
+          <nav className="mobile-menu" aria-label="Navegação mobile">
+            <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre mim</a>
+            <a href="#abordagem" onClick={() => setMenuOpen(false)}>Abordagem</a>
+            <a href="#atendimento" onClick={() => setMenuOpen(false)}>Atendimentos</a>
+            <a href="#duvidas" onClick={() => setMenuOpen(false)}>Dúvidas</a>
+            <a className="mobile-cta" href={WHATSAPP_URL} target="_blank" rel="noreferrer">Agendar conversa</a>
+          </nav>
+        )}
+      </header>
+
+      <main id="top">
+        {/* Hero: a imagem é aplicada como background no CSS para ocupar toda a primeira tela. */}
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="container">
+            <div className="hero-content">
+              <p className="eyebrow">✦ Psicologia clínica</p>
+              <h1 id="hero-title">Um espaço para <em>você</em> se escutar.</h1>
+              <p className="hero-description">Terapia é um encontro cuidadoso com a sua própria história. Vamos construir, no seu tempo, caminhos mais leves e possíveis.</p>
+
+              <div className="hero-actions">
+                <a className="primary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">Quero começar <ArrowIcon /></a>
+
+                {/* CTA com texto digitado e ícone do WhatsApp. */}
+                <a className="whatsapp-type" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                  <WhatsAppIcon size={17} />
+                  <span>{typedText}</span><span className="type-cursor" aria-hidden="true" />
+                </a>
+
+                {/* O pedido do usuário foi deixar este link abaixo do WhatsApp. */}
+                <a className="secondary-link" href="#sobre">Conheça meu trabalho <ArrowIcon /></a>
+              </div>
+
+              <p className="hero-note">◉ Atendimento ético, sigiloso e acolhedor</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Seção de apresentação profissional. */}
+        <section id="sobre" className="section" aria-labelledby="sobre-title">
+          <div className="container section-grid">
+            <div>
+              <SectionLabel>Sobre mim</SectionLabel>
+              <h2 id="sobre-title">A sua história merece ser <em>ouvida.</em></h2>
+            </div>
+            <div className="section-copy">
+              <p>Olá, eu sou Clara. Psicóloga clínica e especialista em Terapia Cognitivo-Comportamental. Acredito que olhar para dentro não precisa ser um caminho solitário — e que pequenas mudanças, feitas com cuidado, transformam a forma como vivemos.</p>
+              <p>Meu trabalho é oferecer um lugar seguro, sem julgamentos e com escuta genuína, para que você possa compreender seus padrões, elaborar o que sente e encontrar novas possibilidades para o cotidiano.</p>
+              <div className="stats">
+                <div className="stat"><strong>CRP 00/00000</strong><small>Psicóloga clínica</small></div>
+                <div className="stat"><strong>8 anos</strong><small>de prática e estudo contínuo</small></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Explicação da abordagem terapêutica. */}
+        <section id="abordagem" className="section section-blue" aria-labelledby="abordagem-title">
+          <div className="container section-grid">
+            <div>
+              <SectionLabel>Como trabalhamos</SectionLabel>
+              <h2 id="abordagem-title">Clareza para entender. <em>Cuidado</em> para transformar.</h2>
+            </div>
+            <div className="section-copy">
+              <p>A Terapia Cognitivo-Comportamental é uma abordagem prática e colaborativa. Juntos, vamos observar a relação entre pensamentos, emoções e comportamentos para construir estratégias que façam sentido para a sua vida.</p>
+              <div className="cards">
+                <article className="card"><span className="card-number">01</span><h3>Escuta sem pressa</h3><p>Um espaço para você chegar como está, com respeito à sua singularidade.</p></article>
+                <article className="card accent"><span className="card-number">02</span><h3>Construção conjunta</h3><p>Objetivos claros e ferramentas para levar o cuidado para a rotina.</p></article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Atendimento único, pois a profissional atende exclusivamente online. */}
+        <section id="atendimento" className="section" aria-labelledby="atendimento-title">
+          <div className="container section-grid">
+            <div>
+              <SectionLabel>Atendimentos</SectionLabel>
+              <h2 id="atendimento-title">Cuidado que cabe na sua <em>rotina.</em></h2>
+            </div>
+            <div className="section-copy">
+              <p>Sessões exclusivamente online, com conforto, privacidade e flexibilidade para você cuidar de si onde estiver.</p>
+              <article className="card" style={{ marginTop: "36px", background: "var(--blue-soft)" }}>
+                <span className="card-number">◎</span><h3>Terapia online</h3>
+                <p>Um espaço reservado e seguro para a sua sessão, sem deslocamento e no ritmo da sua rotina.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ interativo para responder dúvidas comuns antes do contato. */}
+        <section id="duvidas" className="section section-yellow" aria-labelledby="duvidas-title">
+          <div className="container section-grid">
+            <div><SectionLabel>Antes de começar</SectionLabel><h2 id="duvidas-title">Dúvidas <em>comuns.</em></h2></div>
+            <div className="faq-list">
+              {faqItems.map((question, index) => (
+                <div className="faq-item" key={question}>
+                  <button className="faq-question" type="button" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)}>
+                    {question}<span>{openFaq === index ? "−" : "+"}</span>
+                  </button>
+                  {openFaq === index && <p className="faq-answer">A primeira sessão é um momento de conversa e acolhimento. Vamos entender o que trouxe você até aqui, conhecer suas expectativas e combinar juntos os próximos passos — com leveza e sem pressa.</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA final para aumentar as chances de contato. */}
+        <section className="section section-dark" aria-labelledby="cta-title">
+          <div className="container section-grid">
+            <div><SectionLabel>Um primeiro passo</SectionLabel><h2 id="cta-title">Você não precisa ter todas as respostas para <em>começar.</em></h2></div>
+            <div className="section-copy"><p>Vamos conversar sobre o que você está vivendo e descobrir se este espaço pode fazer sentido para você.</p><a className="primary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">Agendar uma conversa <ArrowIcon /></a></div>
+          </div>
+        </section>
+      </main>
+
+      {/* Botão flutuante sempre disponível para abrir o WhatsApp. */}
+      <a className="floating-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Falar com Clara pelo WhatsApp"><WhatsAppIcon size={28} /></a>
+
+      <footer className="site-footer">
+        <div className="container footer-inner"><strong className="logo">Clara <span>Menezes</span></strong><span>© 2024 · Psicologia clínica</span></div>
+      </footer>
+    </div>
+  );
+}
+
+// Monta o componente principal no elemento #root definido no HTML.
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

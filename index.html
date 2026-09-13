@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- Define a codificação para exibir corretamente acentos em português. -->
+    <meta charset="UTF-8" />
+
+    <!-- Faz a página se adaptar corretamente a celulares e tablets. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título exibido na aba do navegador e considerado pelos buscadores. -->
+    <title>Clara Menezes | Psicóloga clínica online</title>
+
+    <!-- Descrição usada por buscadores e compartilhamentos. -->
+    <meta name="description" content="Clara Menezes — Psicóloga clínica com atendimento online. Um espaço seguro, ético e acolhedor para você se escutar." />
+
+    <!-- Metadados básicos para compartilhamento no WhatsApp, Facebook e LinkedIn. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Clara Menezes | Psicologia clínica" />
+    <meta property="og:description" content="Atendimento psicológico online com escuta genuína, ética e acolhimento." />
+    <meta property="og:image" content="/manus-storage/psicologa-hero_18591575.jpg" />
+
+    <!-- Melhora a aparência da barra do navegador em dispositivos móveis. -->
+    <meta name="theme-color" content="#D1E3EB" />
+
+    <!-- Prepara a conexão com o servidor das fontes. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fontes: uma serifada para títulos e uma sans-serif para textos. -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+    <!-- Arquivo de estilos criado separadamente. -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- React e ReactDOM carregados por CDN para permitir os três arquivos independentes. -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel permite escrever JSX diretamente no arquivo App.jsx durante a edição. -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <!-- O React monta toda a aplicação dentro deste elemento. -->
+    <div id="root"></div>
+
+    <!-- O Babel transforma explicitamente o JSX em React.createElement para o CDN. -->
+    <script>
+      fetch("App.jsx")
+        .then(function (response) { return response.text(); })
+        .then(function (source) {
+          var jsxPlugin = [Babel.availablePlugins["transform-react-jsx"], { runtime: "classic" }];
+          var compiled = Babel.transform(source, { plugins: [jsxPlugin] }).code;
+          new Function("React", "ReactDOM", compiled)(React, ReactDOM);
+        })
+        .catch(function (error) { console.error("Erro ao carregar App.jsx:", error); });
+    </script>
+  </body>
+</html>
