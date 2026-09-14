@@ -50,7 +50,7 @@ function App() {
 
   // Texto usado na animação de digitação do CTA do hero.
   const [typedText, setTypedText] = useState("");
-  const typingText = "me chama no WhatsApp";
+  const typingText = "me chame no WhatsApp";
 
   // Executa a digitação uma vez quando o componente entra na tela.
   useEffect(() => {
@@ -225,9 +225,9 @@ function App() {
       {/* Rodapé com Instagram editável. */}
       <footer className="site-footer">
         <div className="container footer-inner">
-          <strong className="logo">Clara <span>Menezes</span></strong>
+          <strong className="logo">Larissa <span>Menezes</span></strong>
           <a className="instagram-link" href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram da psicóloga"><InstagramIcon size={20} /><span>@seuusuario</span></a>
-          <span>© 2024 · Psicologia clínica</span>
+          <span>© 2026 · Psicologia clínica</span>
         </div>
       </footer>
     </div>
