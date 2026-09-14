@@ -112,16 +112,29 @@ function App() {
             ÁREA PARA INSERIR A IMAGEM SVG DO HERO:
             substitua o conteúdo deste <svg> pelo código SVG da sua imagem.
             Não use <img> aqui: cole diretamente o código <svg>...</svg>.
-          */<svg> xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" zoomAndPan="magnify" viewBox="0 0 810 1012.49997" height="1350" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="9c0becff56"><path d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#9c0becff56)"><path fill="#ffffff" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fill-opacity="1" fill-rule="nonzero"/><path fill="#fffae6" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fill-opacity="1" fill-rule="nonzero"/><g transform="matrix(1.054167, 0, 0, 1.054167, 0.199913, 0)"><image x="0" y="0" width="768"</svg>. }
-          <div className="hero-visual" aria-hidden="true">
-            <svg className="hero-svg" viewBox="0 0 620 760" role="img" aria-label="Área reservada para imagem SVG">
-              {/* Placeholder visual suave: pode ser removido ao inserir o SVG definitivo. */}
-              <rect width="620" height="760" rx="36" fill="#D1E3EB" />
-              <circle cx="450" cy="220" r="170" fill="#B4BE64" opacity=".35" />
-              <circle cx="330" cy="510" r="220" fill="#FCEA96" opacity=".72" />
-              <path d="M0 650C150 550 250 730 420 610s180-10 200-30v180H0Z" fill="#97B7E5" opacity=".55" />
-            </svg>
-          </div>
+          */}
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlnsXlink="http://www.w3.org/1999/xlink" 
+            width="1080" 
+            zoomAndPan="magnify" 
+            viewBox="0 0 810 1012.49997" 
+            height="1350" 
+            preserveAspectRatio="xMidYMid meet" 
+            version="1.0"
+          >
+            <defs>
+              <clipPath id="9c0becff56">
+                <path d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " clipRule="nonzero" />
+              </clipPath>
+            </defs>
+            <g clipPath="url(#9c0becff56)">
+              <path fill="#ffffff" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fillOpacity="1" fillRule="nonzero" />
+              <path fill="#fffae6" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fillOpacity="1" fillRule="nonzero" />
+            </g>
+          </svg>
+        </section>
+
 
           <div className="container">
             <div className="hero-content">
