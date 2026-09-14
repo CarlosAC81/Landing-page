@@ -80,7 +80,7 @@ function App() {
       {/* Cabeçalho semântico para navegação e SEO. */}
       <header className="site-header">
         <div className="container header-inner">
-          <a className="logo" href="#top" aria-label="Clara Menezes, voltar ao início">Clara <span>Menezes</span></a>
+          <a className="logo" href="#top" aria-label="Larissa Menezes, voltar ao início">Larissa <span>Menezes</span></a>
 
           <nav className="main-nav" aria-label="Navegação principal">
             <a href="#sobre">Sobre mim</a>
