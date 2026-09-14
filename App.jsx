@@ -50,7 +50,7 @@ function App() {
 
   // Texto usado na animação de digitação do CTA do hero.
   const [typedText, setTypedText] = useState("");
-  const typingText = "me chame no WhatsApp";
+  const typingText = "me chama no WhatsApp";
 
   // Executa a digitação uma vez quando o componente entra na tela.
   useEffect(() => {
@@ -172,7 +172,7 @@ function App() {
             <div className="section-grid video-text-grid">
               <div><SectionLabel>Sobre mim</SectionLabel><h2 id="sobre-title">A sua história merece ser <em>ouvida.</em></h2></div>
               <div className="section-copy">
-                <p>Olá, eu sou Clara. Psicóloga clínica e especialista em Terapia Cognitivo-Comportamental. Acredito que olhar para dentro não precisa ser um caminho solitário — e que pequenas mudanças, feitas com cuidado, transformam a forma como vivemos.</p>
+                <p>Olá, eu sou Larissa. Psicóloga clínica e especialista em Terapia Cognitivo-Comportamental. Acredito que olhar para dentro não precisa ser um caminho solitário — e que pequenas mudanças, feitas com cuidado, transformam a forma como vivemos.</p>
                 <p>Meu trabalho é oferecer um lugar seguro, sem julgamentos e com escuta genuína, para que você possa compreender seus padrões, elaborar o que sente e encontrar novas possibilidades para o cotidiano.</p>
                 <p className="professional-note"><strong>CRP 00/00000</strong> · Psicóloga clínica</p>
               </div>
@@ -220,14 +220,14 @@ function App() {
       </main>
 
       {/* Botão flutuante sempre disponível para abrir o WhatsApp. */}
-      <a className="floating-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Falar com Clara pelo WhatsApp"><WhatsAppIcon size={28} /></a>
+      <a className="floating-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Falar com Larissa pelo WhatsApp"><WhatsAppIcon size={28} /></a>
 
       {/* Rodapé com Instagram editável. */}
       <footer className="site-footer">
         <div className="container footer-inner">
           <strong className="logo">Larissa <span>Menezes</span></strong>
           <a className="instagram-link" href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram da psicóloga"><InstagramIcon size={20} /><span>@seuusuario</span></a>
-          <span>© 2026 · Psicologia clínica</span>
+          <span>© 2024 · Psicologia clínica</span>
         </div>
       </footer>
     </div>
