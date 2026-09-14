@@ -32,7 +32,7 @@ button { font: inherit; }
 /* ==============================
    CABEÇALHO E NAVEGAÇÃO
    ============================== */
-.site-header { position: absolute; inset: 0 0 auto; z-index: 10; }
+.site-header { position: fixed; inset: 0 0 auto; z-index: 50; background: rgba(255,250,229,.88); border-bottom: 1px solid rgba(9,36,53,.08); box-shadow: 0 8px 24px rgba(9,36,53,.06); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .header-inner { height: 96px; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-family: var(--font-display); font-size: 26px; letter-spacing: -.05em; }
 .logo span { color: var(--green); }
