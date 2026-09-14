@@ -114,9 +114,29 @@ function App() {
             Não use <img> aqui: cole diretamente o código <svg>...</svg>.
           */}
           <div className="hero-visual" aria-hidden="true">
-            <svg className="hero-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" zoomAndPan="magnify" viewBox="0 0 810 1012.49997" height="1350" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="9c0becff56"><path d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#9c0becff56)"><path fill="#ffffff" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fill-opacity="1" fill-rule="nonzero"/><path fill="#fffae6" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fill-opacity="1" fill-rule="nonzero"/><g transform="matrix(1.054167, 0, 0, 1.054167, 0.199913, 0)"><image x="0" y="0" width="768"
-            </svg>
-          </div>
+  <svg 
+    className="hero-svg" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlnsXlink="http://www.w3.org/1999/xlink" 
+    width="1080" 
+    zoomAndPan="magnify" 
+    viewBox="0 0 810 1012.49997" 
+    height="1350" 
+    preserveAspectRatio="xMidYMid meet" 
+    version="1.0"
+  >
+    <defs>
+      <clipPath id="9c0becff56">
+        <path d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " clipRule="nonzero" />
+      </clipPath>
+    </defs>
+    <g clipPath="url(#9c0becff56)">
+      <path fill="#ffffff" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fillOpacity="1" fillRule="nonzero" />
+      <path fill="#fffae6" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fillOpacity="1" fillRule="nonzero" />
+    </g>
+  </svg>
+</div>
+
 
 
           <div className="container">
