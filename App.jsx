@@ -105,39 +105,13 @@ function App() {
         )}
       </header>
 
-            <main id="top">
-        {/* Hero com um espaço SVG editável no lado direito. */}
+      <main id="top">
+        {/* Hero usando a imagem SVG real enviada pelo usuário. */}
         <section className="hero" aria-labelledby="hero-title">
-          {/*
-            ÁREA PARA INSERIR A IMAGEM SVG DO HERO:
-            substitua o conteúdo deste <svg> pelo código SVG da sua imagem.
-            Não use <img> aqui: cole diretamente o código <svg>...</svg>.
-          */}
           <div className="hero-visual" aria-hidden="true">
-  <svg 
-    className="hero-svg" 
-    xmlns="http://www.w3.org/2000/svg" 
-    xmlnsXlink="http://www.w3.org/1999/xlink" 
-    width="1080" 
-    zoomAndPan="magnify" 
-    viewBox="0 0 810 1012.49997" 
-    height="1350" 
-    preserveAspectRatio="xMidYMid meet" 
-    version="1.0"
-  >
-    <defs>
-      <clipPath id="9c0becff56">
-        <path d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " clipRule="nonzero" />
-      </clipPath>
-    </defs>
-    <g clipPath="url(#9c0becff56)">
-      <path fill="#ffffff" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fillOpacity="1" fillRule="nonzero" />
-      <path fill="#fffae6" d="M 0.199219 0 L 809.800781 0 L 809.800781 1012 L 0.199219 1012 Z M 0.199219 0 " fillOpacity="1" fillRule="nonzero" />
-    </g>
-  </svg>
-</div>
-
-
+            {/* O arquivo tipo1.svg fica na mesma pasta do index.html. */}
+            <img className="hero-svg" src="tipo1.svg" alt="Imagem de apresentação da psicóloga" />
+          </div>
 
           <div className="container">
             <div className="hero-content">
@@ -243,7 +217,7 @@ function App() {
         <div className="container footer-inner">
           <strong className="logo">Larissa <span>Menezes</span></strong>
           <a className="instagram-link" href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram da psicóloga"><InstagramIcon size={20} /><span>@seuusuario</span></a>
-          <span>© 2024 · Psicologia clínica</span>
+          <span>© 2026 · Psicologia clínica</span>
         </div>
       </footer>
     </div>
