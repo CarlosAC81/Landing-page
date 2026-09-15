@@ -230,7 +230,7 @@ function App() {
         <div className="container footer-inner">
           <strong className="logo">Larissa <span>Menezes</span></strong>
           <a className="instagram-link" href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram da psicóloga"><InstagramIcon size={20} /><span>@seuusuario</span></a>
-          <span>© 2024 · Psicologia clínica</span>
+          <span>© 2026 · Psicologia clínica</span>
         </div>
       </footer>
     </div>
