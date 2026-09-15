@@ -44,6 +44,16 @@ function SectionLabel({ children }) {
   return <p className="section-label">{children}</p>;
 }
 
+// Arte do hero com moldura arredondada e placa de identificação da profissional.
+function HeroArtwork({ className }) {
+  return (
+    <div className={className} aria-hidden="true">
+      <div className="hero-svg hero-svg-inline" dangerouslySetInnerHTML={{ __html: HERO_SVG }} />
+      <div className="hero-sign"><span>Psicóloga</span><strong>Larissa Menezes</strong></div>
+    </div>
+  );
+}
+
 function App() {
   // Controla a abertura do menu em telas pequenas.
   const [menuOpen, setMenuOpen] = useState(false);
@@ -111,10 +121,8 @@ function App() {
       <main id="top">
         {/* Hero usando a imagem SVG real enviada pelo usuário. */}
         <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-visual" aria-hidden="true">
-            {/* O arquivo tipo1.svg fica na mesma pasta do index.html. */}
-            <div className="hero-svg hero-svg-inline" dangerouslySetInnerHTML={{ __html: HERO_SVG }} />
-          </div>
+          {/* Desktop: a arte fica menor e separada da coluna de texto. */}
+          <HeroArtwork className="hero-visual" />
 
           <div className="container">
             <div className="hero-content">
@@ -129,6 +137,8 @@ function App() {
               </div>
 
               <p className="hero-note">◉ Atendimento ético, sigiloso e acolhedor</p>
+              {/* Mobile: a arte entra no fluxo depois do aviso ético e antes da seção Sobre mim. */}
+              <HeroArtwork className="hero-mobile-visual" />
             </div>
           </div>
         </section>
