@@ -68,7 +68,8 @@ function App() {
   const feedbacks = [
     { quote: "Substitua este texto pelo feedback autorizado de uma paciente.", author: "Nome ou iniciais", detail: "Paciente de terapia online" },
     { quote: "Adicione aqui outro depoimento real, sempre com autorização.", author: "Nome ou iniciais", detail: "Paciente de terapia online" },
-    { quote: "Este espaço pode reunir percepções sobre acolhimento e processo.", author: "Nome ou iniciais", detail: "Paciente de terapia online" }
+    { quote: "Este espaço pode reunir percepções sobre acolhimento e processo.", author: "Nome ou iniciais", detail: "Paciente de terapia online" },
+    { quote: "Substitua por um quarto depoimento real, também autorizado pela paciente.", author: "Nome ou iniciais", detail: "Paciente de terapia online" }
   ];
 
   // Executa a digitação uma vez quando o componente entra na tela.
@@ -112,6 +113,7 @@ function App() {
           <nav className="main-nav" aria-label="Navegação principal">
             <a href="#sobre">Sobre mim</a>
             <a href="#atendimento">Abordagem e atendimentos</a>
+            <a href="#feedbacks">Feedbacks</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
 
@@ -126,6 +128,7 @@ function App() {
           <nav className="mobile-menu" aria-label="Navegação mobile">
             <a href="#sobre" onClick={closeMenu}>Sobre mim</a>
             <a href="#atendimento" onClick={closeMenu}>Abordagem e atendimentos</a>
+            <a href="#feedbacks" onClick={closeMenu}>Feedbacks</a>
             <a href="#duvidas" onClick={closeMenu}>Dúvidas</a>
             <a className="mobile-cta" href={WHATSAPP_URL} target="_blank" rel="noreferrer">Agendar conversa</a>
           </nav>
