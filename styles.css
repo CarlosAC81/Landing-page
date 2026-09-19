@@ -112,8 +112,14 @@ em { color: var(--green); }
 .faq-answer { margin: -4px 0 22px; color: rgba(9,36,53,.65); line-height: 1.7; }
 
 /* Botão flutuante que permanece acessível durante a rolagem. */
-.floating-whatsapp { position: fixed; right: 22px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: white; box-shadow: 0 12px 28px rgba(37,211,102,.34); transition: transform .2s var(--ease-out); }
+.floating-whatsapp { position: fixed; right: 22px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: white; box-shadow: 0 12px 28px rgba(37,211,102,.34); transition: transform .2s var(--ease-out); animation: whats-pulse 30s ease-in-out infinite; }
 .floating-whatsapp:hover { transform: translateY(-4px) scale(1.04); }
+@keyframes whats-pulse {
+  0%, 90% { transform: scale(1); box-shadow: 0 12px 28px rgba(37,211,102,.34); }
+  93% { transform: scale(1.16); box-shadow: 0 12px 28px rgba(37,211,102,.34), 0 0 0 12px rgba(37,211,102,.22); }
+  96% { transform: scale(.95); box-shadow: 0 12px 28px rgba(37,211,102,.34), 0 0 0 4px rgba(37,211,102,.1); }
+  100% { transform: scale(1); box-shadow: 0 12px 28px rgba(37,211,102,.34); }
+}
 
 /* ==============================
    RODAPÉ E ANIMAÇÕES
