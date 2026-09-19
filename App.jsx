@@ -156,42 +156,18 @@ function App() {
           </div>
         </section>
 
-        {/* Segunda seção: o vídeo fica logo no começo, antes do texto de apresentação. */}
+        {/* Seção de apresentação (o vídeo foi removido a pedido). */}
         <section id="sobre" className="section section-video" aria-labelledby="sobre-title">
           <div className="container">
             <div className="video-heading">
               <SectionLabel>Conheça meu trabalho</SectionLabel>
-              <h2>Um pouco sobre este <em>espaço.</em></h2>
+              <h2 id="sobre-title">Um pouco sobre este <em>espaço.</em></h2>
             </div>
 
-            {/*
-              ÁREA PARA INSERIR VÍDEO DO YOUTUBE:
-              troque VIDEO_ID pelo ID do vídeo, por exemplo: https://www.youtube.com/watch?v=ABC123 → ABC123.
-              O arquivo video/README.txt no ZIP explica este ponto novamente.
-            */}
-            <div className="video-placeholder">
-              <div className="video-placeholder-content">
-                <span className="video-play">▶</span>
-                <strong>Seu vídeo de apresentação</strong>
-                <small>Substitua VIDEO_ID no iframe comentado no código</small>
-              </div>
-              {/* Quando tiver o vídeo, substitua o bloco acima por este iframe:
-              <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                title="Vídeo de apresentação da psicóloga"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-              */}
-            </div>
-
-            <div className="section-grid video-text-grid">
-              <div><SectionLabel>Sobre mim</SectionLabel><h2 id="sobre-title">A sua história merece ser <em>ouvida.</em></h2></div>
-              <div className="section-copy">
-                <p>Olá, eu sou Larissa. Psicóloga clínica e especialista em Terapia Cognitivo-Comportamental. Acredito que olhar para dentro não precisa ser um caminho solitário — e que pequenas mudanças, feitas com cuidado, transformam a forma como vivemos.</p>
-                <p>Meu trabalho é oferecer um lugar seguro, sem julgamentos e com escuta genuína, para que você possa compreender seus padrões, elaborar o que sente e encontrar novas possibilidades para o cotidiano.</p>
-                <p className="professional-note"><strong>CRP 00/00000</strong> · Psicóloga clínica</p>
-              </div>
+            <div className="section-copy about-copy">
+              <p>Olá, eu sou Larissa. Psicóloga clínica e especialista em Terapia Cognitivo-Comportamental. Acredito que olhar para dentro não precisa ser um caminho solitário — e que pequenas mudanças, feitas com cuidado, transformam a forma como vivemos.</p>
+              <p>Meu trabalho é oferecer um lugar seguro, sem julgamentos e com escuta genuína, para que você possa compreender seus padrões, elaborar o que sente e encontrar novas possibilidades para o cotidiano.</p>
+              <p className="professional-note"><strong>CRP 00/00000</strong> · Psicóloga clínica</p>
             </div>
           </div>
         </section>
