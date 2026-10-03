@@ -31,46 +31,6 @@ button { font: inherit; }
 .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
 /* ==============================
-   PINCEL E RASTRO DE TINTA (SÓ DESKTOP, COM MOUSE DE VERDADE)
-   Um canvas transparente desenha cerdas curtas que somem rápido ao longo do
-   caminho do mouse, e um pincel fino substitui o cursor. Em cima de qualquer
-   link/botão, o pincel some e volta o cursor normal (a "mãozinha"). Tudo isso
-   é ligado via JS só quando a tela tem hover + ponteiro fino, e desliga
-   sozinho para quem prefere menos movimento.
-   ============================== */
-#ink-trail-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 150; }
-.brush-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 8px;
-  margin: -4px 0 0 -4px;
-  pointer-events: none;
-  z-index: 160;
-  opacity: 0;
-  transition: opacity .15s ease;
-  will-change: transform;
-}
-.brush-cursor::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--green);
-  clip-path: polygon(0% 45%, 72% 10%, 100% 50%, 72% 90%);
-  box-shadow: 0 1px 2px rgba(9,36,53,.25);
-}
-@media (hover: hover) and (pointer: fine) {
-  body.brush-cursor-active { cursor: none; }
-  body.brush-cursor-active .brush-cursor { opacity: .9; }
-  body.brush-cursor-active.brush-over-clickable { cursor: pointer; }
-  body.brush-cursor-active.brush-over-clickable .brush-cursor { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .brush-cursor, #ink-trail-canvas { display: none; }
-}
-
-/* ==============================
    TRANSIÇÃO EM DEGRADÊ ENTRE SEÇÕES
    Como o site é uma página única (sem rotas separadas), a "transição entre
    páginas" acontece de duas formas: uma cortina suave ao carregar o site, e
