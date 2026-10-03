@@ -7,23 +7,64 @@
     <!-- Faz a página se adaptar corretamente a celulares e tablets. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Indica explicitamente aos buscadores que a página deve ser indexada e seguida. -->
+    <meta name="robots" content="index, follow" />
+
     <!-- Título exibido na aba do navegador e considerado pelos buscadores. -->
-    <title>Larissa Menezes | Psicóloga clínica online</title>
+    <title>Larissa Menezes | Psicóloga Online e Psicanalista – Terapia Online</title>
 
-    <!-- Descrição usada por buscadores e compartilhamentos. -->
-    <meta name="description" content="Larissa Menezes — Psicóloga clínica com atendimento online. Um espaço seguro, ético e acolhedor para você se escutar." />
+    <!-- Descrição usada por buscadores e compartilhamientos. -->
+    <meta name="description" content="Psicóloga online e psicanalista (CRP 06/220176). Terapia online por videochamada, com escuta ética, sigilosa e acolhedora. Agende sua conversa." />
 
-    <!-- Metadados básicos para compartilhamento no WhatsApp, Facebook e LinkedIn. -->
+    <!-- URL canônica: troque pelo domínio final assim que o site estiver publicado. -->
+
+    <!-- Metadados básicos para compartilhamento no WhatsApp, Facebook e LinkedIn.
+         A imagem (og-image.jpg) é o print enviado, já recortado no formato ideal
+         de compartilhamento (1200x630). -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Larissa Menezes | Psicologia clínica" />
-    <meta property="og:description" content="Atendimento psicológico online com escuta genuína, ética e acolhimento." />
-    <meta property="og:image" content="/manus-storage/psicologa-hero_18591575.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Larissa Menezes Psicologia" />
+    <meta property="og:title" content="Larissa Menezes | Psicóloga Online e Psicanalista" />
+    <meta property="og:description" content="Terapia online com escuta genuína, ética e acolhimento. CRP 06/220176." />
+    <meta property="og:url" content="https://carlosac81.github.io/Landing-page-larissa-v2" />
+    <meta property="og:image" content="https://carlosac81.github.io/Landing-page-larissa-v2/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Larissa Menezes, psicóloga e psicanalista, sorrindo" />
+
+    <!-- Cartão do Twitter/X para pré-visualização com imagem grande. -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Larissa Menezes | Psicóloga Online e Psicanalista" />
+    <meta name="twitter:description" content="Terapia online com escuta genuína, ética e acolhimento. CRP 06/220176." />
+    <meta name="twitter:image" content="https://carlosac81.github.io/Landing-page-larissa-v2/og-image.jpg" />
 
     <!-- Melhora a aparência da barra do navegador em dispositivos móveis. -->
     <meta name="theme-color" content="#D1E3EB" />
 
-    <!-- Ícone da aba: substitua o conteúdo de favicon.svg pelo seu SVG personalizado. -->
+    <!-- Ícone da aba: monograma "LM" em cursiva azul-marinho. -->
     <link rel="icon" type="image/svg+xml" href="Favicon.svg" />
+
+    <!-- Dados estruturados (JSON-LD) para ajudar buscadores a entender quem é a profissional. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Larissa Menezes Psicologia",
+      "description": "Atendimento psicológico online com abordagem psicanalítica, com escuta ética, sigilosa e acolhedora.",
+      "image": "https://carlosac81.github.io/Landing-page-larissa-v2/og-image.jpg",
+      "priceRange": "$$",
+      "areaServed": "BR",
+      "telephone": "+55-11-98573-6871",
+      "url": "https://carlosac81.github.io/Landing-page-larissa-v2/",
+      "sameAs": ["https://instagram.com/psico.larissamenezes"],
+      "provider": {
+        "@type": "Person",
+        "name": "Larissa Menezes",
+        "jobTitle": "Psicóloga | Psicanalista"
+      }
+    }
+    </script>
 
     <!-- Prepara a conexão com o servidor das fontes. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,28 +76,45 @@
     <!-- Arquivo de estilos criado separadamente. -->
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- React e ReactDOM carregados por CDN para permitir os três arquivos independentes. -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- React, ReactDOM e Babel carregados com defer para não bloquear a renderização do HTML. -->
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Babel permite escrever JSX diretamente no arquivo App.jsx durante a edição. -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- GSAP + ScrollTrigger: biblioteca de animação leve e de altíssima performance, usada para as entradas suaves e os efeitos de rolagem. Carregada via CDN, compatível com o stack atual (sem necessidade de build). -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/ScrollTrigger.min.js"></script>
+    <script defer src="pincel.js"></script>
   </head>
 
   <body>
     <!-- O React monta toda a aplicação dentro deste elemento. -->
     <div id="root"></div>
 
-    <!-- O Babel transforma explicitamente o JSX em React.createElement para o CDN. -->
+    <!--
+      Foto do hero: a mesma imagem original (hero-larissa.jpg), na raiz do repositório.
+      Referenciá-la como arquivo (em vez de embutir como texto) permite que o navegador
+      a carregue em paralelo e a guarde em cache — mais rápido do que se ela estivesse
+      dentro do JS que o Babel precisa processar.
+    -->
     <script>
-      fetch("App.jsx")
-        .then(function (response) { return response.text(); })
-        .then(function (source) {
-          var jsxPlugin = [Babel.availablePlugins["transform-react-jsx"], { runtime: "classic" }];
-          var compiled = Babel.transform(source, { plugins: [jsxPlugin] }).code;
-          new Function("React", "ReactDOM", compiled)(React, ReactDOM);
-        })
-        .catch(function (error) { console.error("Erro ao carregar App.jsx:", error); });
+      window.__HERO_IMAGE__ = "hero-larissa.jpg";
+    </script>
+
+    <!-- O Babel transforma explicitamente o JSX em React.createElement para o CDN.
+         Aguarda o DOMContentLoaded para garantir que React, Babel e GSAP (carregados
+         com defer acima) já estejam disponíveis antes de montar a aplicação. -->
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        fetch("App.jsx")
+          .then(function (response) { return response.text(); })
+          .then(function (source) {
+            var jsxPlugin = [Babel.availablePlugins["transform-react-jsx"], { runtime: "classic" }];
+            var compiled = Babel.transform(source, { plugins: [jsxPlugin] }).code;
+            new Function("React", "ReactDOM", compiled)(React, ReactDOM);
+          })
+          .catch(function (error) { console.error("Erro ao carregar App.jsx:", error); });
+      });
     </script>
   </body>
 </html>
